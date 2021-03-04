@@ -1,10 +1,17 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * Fonctions pour l'application GSB
+ *
+ * PHP Version 7
+ *
+ * @category  Stage
+ * @package   Euroforma
+ * @author    Rachel Kott
+ * @author    <kottrachel@gmail.com>
+ * @author   Beth Sefer
+ * @copyright 2020-2021
  */
+
 /**
  * Teste si un quelconque utilisateurteur est connecté
  *
@@ -63,4 +70,16 @@ function nbErreurs()
     } else {
         return count($_REQUEST['erreurs']);
     }
+}
+
+function presence($presence, $nbrEleve)
+{
+    $tab=array();
+    for ($i = 0; $i<$nbrEleve; $i++) {
+        $tab[$i] = 'NON';
+    }
+    foreach ($presence as $unePresence){
+            $tab[$unePresence-1]='OUI';
+    }
+    return $tab;
 }

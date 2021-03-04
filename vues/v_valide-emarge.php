@@ -1,17 +1,15 @@
 <?php
 /**
- * Vue Déconnexion
+ * Vue valide l'émargement fait
  *
  * PHP Version 7
  *
  * @category  Stage
  * @package   Euroforma
- * @author    Réseau CERTA <contact@reseaucerta.org>
- * @author    José GIL <jgil@ac-nice.fr>
- * @copyright 2017 Réseau CERTA
- * @license   Réseau CERTA
- * @version   GIT: <0>
- * @link      http://www.reseaucerta.org Contexte « Ecole de comptabilité Euroforma »
+ * @author    Rachel Kott
+ * @author    <kottrachel@gmail.com>
+ * @author   Beth Sefer
+ * @copyright 2020-2021
  */
 valide-emarge();
 ?>

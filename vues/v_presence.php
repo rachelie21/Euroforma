@@ -1,17 +1,15 @@
 <?php
 /**
- * Vue Presence
+ * Vue présence
  *
  * PHP Version 7
  *
- * @category  PPE
- * @package   GSB
- * @author    Réseau CERTA <contact@reseaucerta.org>
- * @author    Rachel Kott <kottrachel@gmail.com>
- * @copyright 2021 Réseau CERTA
- * @license   Réseau CERTA
- * @version   GIT: <0>
- * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
+ * @category  Stage
+ * @package   Euroforma
+ * @author    Rachel Kott
+ * @author    <kottrachel@gmail.com>
+ * @author   Beth Sefer
+ * @copyright 2020-2021
  */
 ?>
 <div class="row">

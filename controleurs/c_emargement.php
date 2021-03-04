@@ -6,12 +6,10 @@
  *
  * @category  Stage
  * @package   Euroforma
- * @author    Réseau CERTA <contact@reseaucerta.org>
- * @author    Rachel Kott <kottrachel@gmail.com>
- * @copyright 2017 Réseau CERTA
- * @license   Réseau CERTA
- * @version   GIT: <0>
- * @link      http://www.reseaucerta.org Contexte « Ecole de comptabilité Euroforma »
+ * @author    Rachel Kott
+ * @author    <kottrachel@gmail.com>
+ * @author   Beth Sefer
+ * @copyright 2020-2021
  */
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
@@ -25,13 +23,22 @@ case 'saisirEmargement':
     include 'vues/v_emargement.php';
     break;
 case 'faireEmargement';
-    $presence = filter_input(INPUT_POST, 'checkbox', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
+    $presence = filter_input(INPUT_POST, 'cocher', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
     $motif = filter_input(INPUT_POST, 'idmotif', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
+    $nbrEleve = $pdo->countEleve();
+    echo $nbrEleve;
+    $presAbs = presence($presence, $nbrEleve);
     var_dump($presence);
     var_dump ($motif);
     $LesEleves = $pdo->getLesEleves();
     $req = $pdo->getEnregistrement();
     include 'vues/v_presence.php';
+    break;
+case 'voirEmargement';
+    $idSeance = filter_input(INPUT_POST, 'idSeance', FILTER_SANITIZE_STRING);
+    $ConsultEmarg = $pdo->getVoirEmargement($idSeance);
+    $LesEleves = $pdo->getLesEleves();
+    include 'vues/v_consulter.php';
     break;
 default:
 	include 'vues/v_accueil.php';

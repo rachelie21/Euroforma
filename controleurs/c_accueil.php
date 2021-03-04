@@ -4,14 +4,15 @@
  *
  * PHP Version 7
  *
- * @category  STAGES
+ * @category  Stage
  * @package   Euroforma
- * @author    TsivyaSuissa <tsivyasuissa@gmail.com>
- * @copyright 2020 Euroforma
- * @license   Réseau CERTA
- * @version   GIT: <0>
- * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
+ * @author    Rachel Kott
+ * @author    <kottrachel@gmail.com>
+ * @author   Beth Sefer
+ * @copyright 2020-2021
  */
+
+$estConnecte= estConnecte();
 
 if ($estConnecte) {
     include 'vues/v_accueil.php'; 

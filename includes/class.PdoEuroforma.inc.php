@@ -1,9 +1,13 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * Classe d'accès aux données
+ *
+ * PHP Version 7
+ *
+ * @category  Stages 2eme année
+ * @package   Euroforma
+ * @author    Yoheved Tirtsa Touati
+ * @author    Beth Sefer
  */
 class PdoEuroforma
 {
@@ -171,5 +175,31 @@ private function __construct()
        //On renvoie l'utilisateur vers la page de remerciement
         header("Location:v_valide-emarge.php");
     }
+    /**
+     * Retourne le nombre d'éleves
+     * @return type
+     */
+    public function countEleve()
+            {
+        $requetePrepare = PdoEuroforma::$monPdo->prepare(
+            'SELECT count(*) '
+            . 'FROM eleve'
+        );
+        $requetePrepare->execute();
+        return $requetePrepare->fetch();
+    }
     
+    public function getVoirEmargement($idSeance)
+   {
+      $requetePrepare = PdoEuroforma::$monPdo->prepare(
+               'SELECT  nom, prenom, presence, motif '
+              . 'FROM emargement '
+              . 'WHERE idSeance = :unidSeance'
+
+       );
+       $requetePrepare->bindParam(':unidSeance',$idSeance);
+       $requetePrepare->execute();
+       return $requetePrepare->fetchAll();
+   }   
+   
 }

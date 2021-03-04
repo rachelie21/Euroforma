@@ -20,6 +20,7 @@ session_start();//METHODE UNE SEESION C EST UNE SUPERGLOBALE UNE variable qui co
 $pdo = PdoEuroforma::getPdoEuroforma();//Variableqd y a un §juste avant les :c est un racourci d ecriture qui veut dire une classe ici
 $estConnecte = estConnecte();
 require 'vues/v_entete.php';//require ca lance et si ca marche pas erreur fatale le programme s arrete
+
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);//filter input verifier le contenu de la variable uc
 if ($uc && !$estConnecte) {//si uc a recu un resultat 
     $uc = 'connexion';
@@ -38,9 +39,6 @@ case 'gereremargement':
     break;
 case 'comptes-rendus':
     include 'controleurs/c_comptes-rendus.php';
-    break;
-case 'formulaires administratifs':
-    include 'controleurs/c_formulaires-administratifs.php';
     break;
 case 'deconnexion':
     include 'controleurs/c_deconnexion.php';
